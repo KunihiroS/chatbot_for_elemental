@@ -1,5 +1,8 @@
 import streamlit as st
 import random
+import openai
+
+openai.api_key = st.secrets["general"]["OPENAI_API_KEY"]
 
 st.title('ふしぎなこの子になんでもきいてみよう！！')
 

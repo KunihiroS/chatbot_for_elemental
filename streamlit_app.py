@@ -27,7 +27,7 @@ with st.form(key='chat_form'):
                 ]
             )
             bot_response = response['choices'][0]['message']['content']
-        except openai.error.OpenaiError as e:
+        except openai.error.OpenAIError as e:
             bot_response = str(e)
         
         st.session_state.chat_log.insert(0, ("Bot", bot_response))

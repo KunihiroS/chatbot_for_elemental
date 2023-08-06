@@ -18,8 +18,15 @@ with st.form(key='chat_form'):
    
     if send_button and user_input and user_input != st.session_state.last_input:
         # OpenAI APIを使用して応答を取得
-        response = openai.Completion.create(engine="davinci", prompt=user_input, max_tokens=1024)
-        bot_response = response.choices[0].text.strip()
+        response = openai.Completion.create(
+		model="gpt-3.5-turbo",
+  		messages=[
+        		{"role": "system", "content": "You are a helpful tutor for Japanese elemetary school students."},
+        		{"role": "assistant", "content": ""},
+        		{"role": "user", "content": user_input}
+    			]
+		)
+        bot_response = response['choices'][0]['message']['content']
         st.session_state.chat_log.insert(0, ("Bot", bot_response ))
         st.session_state.chat_log.insert(0, ("User", user_input))
         st.session_state.last_input = user_input

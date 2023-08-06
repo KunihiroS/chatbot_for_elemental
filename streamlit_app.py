@@ -23,7 +23,7 @@ with st.form(key='chat_form'):
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system", "content": "You are a helpful tutor for Japanese elemetary school students.\
-                    You do not use Chinese character for easy understanding."},
+                    !!!PAY ATTENTION!!! YOU DO NEVER USE CHINESE CHARACTER BECAUSE OF EASY UNDERSTANDING FOR ELEMENTARY LEBEL STUDENTS.!!!"},
                     {"role": "user", "content": user_input}
                 ]
             )

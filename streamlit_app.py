@@ -14,6 +14,6 @@ if user_input:
 
 for role, message in chat_log:
     if role == "User":
-        st.write(f'<div style="text-align: left; padding: 10px; border-radius: 5px; background-color: #f0f0f0;">{message}</div>', unsafe_allow_html=True)
+        st.write(f'<div style="text-align: left; padding: 10px; border-radius: 5px; background-color: #191970;">{message}</div>', unsafe_allow_html=True)
     else:
-        st.write(f'<div style="text-align: right; padding: 10px; border-radius: 5px; background-color: #e0e0e0;">{message}</div>', unsafe_allow_html=True)
+        st.write(f'<div style="text-align: right; padding: 10px; border-radius: 5px; background-color: #B1063A;">{message}</div>', unsafe_allow_html=True)

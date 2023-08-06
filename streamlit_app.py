@@ -7,8 +7,9 @@ responses = ["That's interesting!", "Tell me more.", "I see.", "Very cool."]
 chat_log = []
 
 user_input = st.text_input("なんでもきいてね")
+send_button = st.button("送信")
 
-if user_input:
+if send_button and user_input:
     chat_log.append(("User", user_input))
     chat_log.append(("Bot", random.choice(responses)))
 

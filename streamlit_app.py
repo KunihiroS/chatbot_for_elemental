@@ -20,7 +20,7 @@ with st.form(key='chat_form'):
         # OpenAI APIを使用して応答を取得
         response = openai.Completion.create(engine="davinci", prompt=user_input, max_tokens=150)
         bot_response = response.choices[0].text.strip()
-        st.session_state.chat_log.insert(0, ("Bot", responses))
+        st.session_state.chat_log.insert(0, ("Bot", bot_response ))
         st.session_state.chat_log.insert(0, ("User", user_input))
         st.session_state.last_input = user_input
         

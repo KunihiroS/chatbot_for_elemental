@@ -12,7 +12,7 @@ if 'last_input' not in st.session_state:
     st.session_state.last_input = ""
 
 with st.form(key='chat_form'):
-    user_input = st.text_input("なんでもきいてね")
+    user_input = st.text_area("なんでもきいてね", height=200)  # text_areaを使用して高さを調整
     send_button = st.form_submit_button("送信")
    
     if send_button and user_input and user_input != st.session_state.last_input:
@@ -22,6 +22,6 @@ with st.form(key='chat_form'):
         
 for role, message in st.session_state.chat_log:
     if role == "User":
-        st.write(f'<div style="text-align: left; padding: 10px; border-radius: 5px; background-color: #191970;">{message}</div>', unsafe_allow_html=True)
+        st.write(f'<div style="text-align: left; padding: 10px; border-radius: 5px; background-color: #191970; word-wrap: break-word;">{message}</div>', unsafe_allow_html=True)
     else:
-        st.write(f'<div style="text-align: right; padding: 10px; border-radius: 5px; background-color: #B1063A;">{message}</div>', unsafe_allow_html=True)
+        st.write(f'<div style="text-align: right; padding: 10px; border-radius: 5px; background-color: #B1063A; word-wrap: break-word;">{message}</div>', unsafe_allow_html=True)

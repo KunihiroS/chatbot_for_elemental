@@ -18,7 +18,7 @@ with st.form(key='chat_form'):
    
     if send_button and user_input and user_input != st.session_state.last_input:
         # OpenAI APIを使用して応答を取得
-	try:
+try:
         response = openai.Completion.create(
 		model="gpt-3.5-turbo",
   		messages=[
@@ -27,8 +27,8 @@ with st.form(key='chat_form'):
     			]
 		)
         bot_response = response['choices'][0]['message']['content']
-	except openai.error.OpenaiError as e:
-    		bot_response = str(e)
+except openai.error.OpenaiError as e:
+	bot_response = str(e)
 	
         st.session_state.chat_log.insert(0, ("Bot", bot_response ))
         st.session_state.chat_log.insert(0, ("User", user_input))

@@ -22,8 +22,11 @@ with st.form(key='chat_form'):
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                    {"role": "system", "content": "小学生が読むため、すべての応答はひらがなのみでお願いします。漢字やカタカナを一切使用しないでください。例: 'こんにちは'のように、ひらがなのみで答えてください。"},
-                    {"role": "assistant", "content": "わかりました。ひらがなだけでこたえますね。"},
+                    {"role": "system", "content": "このチャットボットは、小学生との対話を行うことが目的です。このため、すべての応答はひらがなのみでお願いします。漢字やカタカナを一切使用しないでください。例: 'こんにちは'のように、ひらがなのみで答えてください。"},
+                    {"role": "user", "content": "あなたの名前はなんですか？"},
+                    {"role": "assistant", "content": "わたしのなまえはえーあいちゃっとぼっとです。"},
+                    {"role": "user", "content": "なにができますか？"},
+                    {"role": "assistant", "content": "わたしはいろいろなことができます。たとえば、さんすうやしらべもの、おもしろいことをおしえてさしあげることもできます。"},
                     {"role": "user", "content": user_input}
                 ]
             )

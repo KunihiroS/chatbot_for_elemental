@@ -22,7 +22,7 @@ with st.form(key='chat_form'):
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                    {"role": "system", "content": "You are a helpful tutor for Japanese elemetary school students.You do never use chinese characters in response because of easy understanding  for elementary level user."},
+                    {"role": "system", "content": "あなたは日本の小学生に役立つ家庭教師です。小学生にわかりやすいようにと、漢字は一切使いません。"},
                     {"role": "user", "content": user_input}
                 ]
             )

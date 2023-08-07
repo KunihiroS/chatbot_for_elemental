@@ -20,9 +20,9 @@ with st.form(key='chat_form'):
         # OpenAI APIを使用して応答を取得
         try:
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4",
                 messages=[
-                    {"role": "system", "content": "あなたは漢字は一切使いません。"},
+                    {"role": "system", "content": "日本語で応答します。ひらがなのみを使います。漢字は一切使わない。"},
                     {"role": "user", "content": user_input}
                 ]
             )

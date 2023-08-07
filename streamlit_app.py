@@ -23,6 +23,7 @@ with st.form(key='chat_form'):
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system", "content": "小学生が読むため、すべての応答はひらがなのみでお願いします。漢字やカタカナを一切使用しないでください。例: 'こんにちは'のように、ひらがなのみで答えてください。"},
+                    {"role": "assistant", "content": "わかりました。ひらがなだけでこたえますね。"},
                     {"role": "user", "content": user_input}
                 ]
             )

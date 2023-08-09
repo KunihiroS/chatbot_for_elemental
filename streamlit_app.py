@@ -20,7 +20,7 @@ with st.form(key='chat_form'):
         # OpenAI APIを使用して応答を取得
         try:
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4",
                 messages=[
                     {"role": "system", "content": "Objective (O)\
                     あなたの目的は、ユーザーからの質問やコメントに対して、ひらがなのみを使用して応答することです。\

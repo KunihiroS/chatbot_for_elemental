@@ -70,9 +70,23 @@ with st.form(key='chat_form'):
                 ]
             )
             bot_response = response['choices'][0]['message']['content']
-        except openai.OpenAIAPIError as e:
         #except openai.error.OpenAIError as e:
-            bot_response = str(e)
+            #bot_response = str(e)
+        except openai.APIConnectionError as e:
+            print("The server could not be reached")
+            print(e.__cause__)  # Underlying exception, likely within httpx.
+            bot_response = "The server could not be reached: " + str(e)
+        except openai.RateLimitError as e:
+            print("A 429 status code was received; we should back off a bit.")
+            bot_response = "Rate limit exceeded: " + str(e)
+        except openai.APIStatusError as e:
+            print("Another non-200-range status code was received")
+            print("Status code:", e.status_code)
+            print("Response:", e.response)
+            bot_response = "API error (status code " + str(e.status_code) + "): " + str(e.response)
+        except openai.APIError as e:
+            print("A general API error occurred")
+            bot_response = "API error: " + str(e)
         
         st.session_state.chat_log.insert(0, ("Bot", bot_response))
         st.session_state.chat_log.insert(0, ("User", user_input))

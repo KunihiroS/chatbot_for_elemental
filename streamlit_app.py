@@ -1,8 +1,13 @@
 import streamlit as st
 import random
-import openai
+#import openai
+#openai.api_key = st.secrets["general"]["OPENAI_API_KEY"]
 
-openai.api_key = st.secrets["general"]["OPENAI_API_KEY"]
+from openai import OpenAI
+
+client = OpenAI(
+  api_key=st.secrets["general"]["OPENAI_API_KEY"],  # this is also the default, it can be omitted
+)
 
 st.title('ふしぎなこの子になんでもきいてみよう！！')
 
@@ -19,7 +24,8 @@ with st.form(key='chat_form'):
     if send_button and user_input and user_input != st.session_state.last_input:
         # OpenAI APIを使用して応答を取得
         try:
-            response = openai.ChatCompletion.create(
+            #response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model="gpt-4",
                 messages=[
                     {"role": "system", "content": "Objective (O)\

@@ -1,7 +1,7 @@
 import streamlit as st
 import random
-#import openai
-#openai.api_key = st.secrets["general"]["OPENAI_API_KEY"]
+# import openai
+# openai.api_key = st.secrets["general"]["OPENAI_API_KEY"]
 
 from openai import OpenAI
 
@@ -75,9 +75,10 @@ with st.form(key='chat_form'):
                     {"role": "user", "content": user_input}
                 ]
             )
-            bot_response = response['choices'][0]['message']['content']
-        #except openai.error.OpenAIError as e:
-            #bot_response = str(e)
+            # bot_response = response['choices'][0]['message']['content']
+            bot_response = response.choices[0].message.content
+        # except openai.error.OpenAIError as e:
+            # bot_response = str(e)
         except openai.APIConnectionError as e:
             print("The server could not be reached")
             print(e.__cause__)  # Underlying exception, likely within httpx.
